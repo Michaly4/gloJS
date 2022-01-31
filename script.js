@@ -7,5 +7,5 @@ let adaptive;
 
 //! ************************
 //alert('Hey Alert');
-console.log('Hey Console');
+//console.log('Hey Console');
 
