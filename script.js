@@ -6,7 +6,6 @@ let fullPrice;
 let adaptive;
 
 //! ************************
-
-alert('Hey Alert');
+//alert('Hey Alert');
 console.log('Hey Console');
-//? ***********************
+
