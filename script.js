@@ -1,23 +1,14 @@
-let title;
-let screens;
-let screenPrice;
-let rollback;
-let fullPrice;
-let adaptive;
+let title = 'ProjektJS';
+let screens = 'Простые,Сложные,Интерактивные  ';
+let screenPrice = 252;
+let rollback = 54;
+let fullPrice = 52000;
+let adaptive = false;
 //! ************************
-//alert('Hey Alert');
-//console.log('Hey Console');
-screenPrice = 444;
-rollback = 99;
-fullPrice = 50000;
-screens = 'Простые,Сложные,Интерактивные  ';
-title= 'ProjektJS';
-let percent = 50000*(99/100);
-//! *************************
-console.log(title,screens,fullPrice,rollback,screenPrice);
+
+console.log(typeof title, typeof fullPrice,typeof rollback);
 console.log(screens.length);
-console.log(screens.toLowerCase().split());
+console.log(screens.toLowerCase().split(" "));
 console.log(`Стоимость верстки экранов ${screenPrice} рублей ` );
 console.log(`Стоимость разработки сайта ${fullPrice} рублей  `);
-//console.log(`Процент отката посреднику за работу`,` ${fullPrice} * (${rollback}/100)`);
-console.log(`Процент отката посреднику за работу ${percent}`);
+console.log(`Процент отката посреднику за работу (fullPrice * (rollback/100))`);
