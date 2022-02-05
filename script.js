@@ -25,6 +25,12 @@ else if(fullPrice <= 0){
 }
 
 
+let allServicePrices = function getAllServicePrices() {
+   return service2 + service1;
+   
+}
+console.log(getAllServicePrices());
+
 
 
 console.log(title.toUpperCase());
