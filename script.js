@@ -27,7 +27,7 @@ else if(fullPrice <= 0){
 
 
 
-console.log(title);
+console.log(title.toUpperCase());
 console.log(screens.toLowerCase().split(","));
 console.log(screenPrice);
 console.log(adaptive);
