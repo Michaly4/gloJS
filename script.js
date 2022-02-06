@@ -27,7 +27,8 @@ let allServicePrices = getAllServicePrices();
 fullPrice = function getFullPrice() {
    // body...
    return screenPrice + allServicePrices;
-}
+
+};
 fullPrice();
 // console.log(fullPrice ());
 
@@ -46,7 +47,7 @@ getTitle(title);
 servicePercentPrice = function getServicePercentPrices() {
    // body...
    return Math.ceil(fullPrice() - (fullPrice() * rollback / 100));
-}
+};
 //console.log("?" + servicePercentPrice());
 
 // ********************************
@@ -66,6 +67,7 @@ function getRollbackMessage() {
 // ******************************
 
 function showTypeOf() {
+   console.log(typeof title, typeof fullPrice,typeof rollback);
    console.log(screens.toLowerCase().split(","));
    getRollbackMessage();
    console.log(servicePercentPrice());
