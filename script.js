@@ -68,13 +68,11 @@ function getRollbackMessage() {
 
 function showTypeOf() {
    console.log(typeof title, typeof fullPrice,typeof rollback);
-   console.log(screens.toLowerCase().split(","));
-   getRollbackMessage();
-   console.log(servicePercentPrice());
-
 }
 showTypeOf();
-
+getRollbackMessage();
+console.log(servicePercentPrice());
+console.log(screens.toLowerCase().split(","));
 
 //******************************
 
