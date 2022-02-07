@@ -12,54 +12,50 @@ let servicePercentPrice = fullPrice - (fullPrice * rollback / 100);
 
 
 // **** start Function ****
-
-function getAllServicePrices() {
-
-   return servicePrice1 + servicePrice2
+let getAllServicePrices = function () {
+   return servicePrice1 + servicePrice2;
 }
-
 let allServicePrices = getAllServicePrices();
-
-//console.log(allServicePrices);
 
 //******************************
 
-fullPrice = function getFullPrice() {
-   // body...
+function getFullPrice() {
+
    return screenPrice + allServicePrices;
 
 };
-fullPrice();
-// console.log(fullPrice ());
+
+fullPrice = getFullPrice();
+
 
 //  ****************************
-function getTitle(str) {
-   // body...
-   //if(!str.trim())
-   if (str !== "" && str.charAt(0) !== " ") {
-      return str.charAt(0).toUpperCase() + str.slice(1);
+function getTitle() {
+
+   if (title !== "" && title.charAt(0) !== " ") {
+      return title.charAt(0).toUpperCase() + title.slice(1);
    }
 }
-getTitle(title);
-// console.log(getTitle(title));
+
+title = getTitle();
 
 //******************************
-servicePercentPrice = function getServicePercentPrices() {
-   // body...
-   return Math.ceil(fullPrice() - (fullPrice() * rollback / 100));
+function getServicePercentPrices() {
+
+   return Math.ceil(fullPrice - (fullPrice * rollback / 100));
 };
-//console.log("?" + servicePercentPrice());
+
+servicePercentPrice = getServicePercentPrices();
 
 // ********************************
 function getRollbackMessage(arg) {
-   // body...
-   if (fullPrice() > 30000) {
+
+   if (fullPrice > 30000) {
       return "Даем скидку в 10%";
-   } else if (fullPrice() > 15000 && fullPrice() < 30000 || fullPrice() == 30000) {
+   } else if (fullPrice > 15000 && fullPrice <= 30000) {
       return "Даем скидку в 5%";
-   } else if (fullPrice() <= 15000) {
+   } else if (fullPrice <= 15000) {
       return 'Скидка не предусмотрена';
-   } else if (fullPrice() <= 0) {
+   } else if (fullPrice <= 0) {
       return "Что-то пошло не так,вы в пролёте";
    }
 }
@@ -67,11 +63,11 @@ function getRollbackMessage(arg) {
 // ******************************
 
 function showTypeOf() {
-   console.log(typeof title, typeof fullPrice,typeof rollback);
+   console.log(typeof title, typeof fullPrice, typeof rollback);
 }
 showTypeOf();
 console.log(getRollbackMessage());
-console.log(servicePercentPrice());
+console.log(servicePercentPrice);
 console.log(screens.toLowerCase().split(","));
 
 //******************************
