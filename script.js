@@ -9,70 +9,57 @@ let service2 = prompt("Какой дополнительный тип услуг
 let servicePrice2 = +prompt("Сколько это будет стоить?");
 let fullPrice = screenPrice + servicePrice1 + servicePrice2;
 let servicePercentPrice = fullPrice - (fullPrice * rollback / 100);
+let allServicePrices;
 
 
 // **** start Function ****
-let getAllServicePrices = function () {
+
+const getAllServicePrices = function () {
    return servicePrice1 + servicePrice2;
-}
-let allServicePrices = getAllServicePrices();
-
-//******************************
-
-function getFullPrice() {
-
-   return screenPrice + allServicePrices;
-
 };
-
-fullPrice = getFullPrice();
-
-
-//  ****************************
-function getTitle() {
-
-   if (title !== "" && title.charAt(0) !== " ") {
-      return title.charAt(0).toUpperCase() + title.slice(1);
-   }
-}
-
-title = getTitle();
-
-//******************************
+function getFullPrice() {
+   return screenPrice + allServicePrices;
+};
 function getServicePercentPrices() {
-
    return Math.ceil(fullPrice - (fullPrice * rollback / 100));
 };
+function getTitle() {
+   return title.trim()[0].toUpperCase() + title.trim().substring(1).toLowerCase();
+}
+function getRollbackMessage(price) {
 
-servicePercentPrice = getServicePercentPrices();
-
-// ********************************
-function getRollbackMessage(arg) {
-
-   if (fullPrice > 30000) {
+   if (price > 30000) {
       return "Даем скидку в 10%";
-   } else if (fullPrice > 15000 && fullPrice <= 30000) {
+   } else if (price > 15000 && price <= 30000) {
       return "Даем скидку в 5%";
-   } else if (fullPrice <= 15000) {
+   } else if (price <= 15000) {
       return 'Скидка не предусмотрена';
-   } else if (fullPrice <= 0) {
+   } else if (price <= 0) {
       return "Что-то пошло не так,вы в пролёте";
    }
 }
-
-// ******************************
-
 function showTypeOf() {
    console.log(typeof title, typeof fullPrice, typeof rollback);
 }
+
+// **** start Variables ****
+allServicePrices = getAllServicePrices();
+fullPrice = getFullPrice();
+servicePercentPrice = getServicePercentPrices();
+title = getTitle();
+
+
+// **** start console ****
 showTypeOf();
-console.log(getRollbackMessage());
+console.log(getRollbackMessage(fullPrice));
 console.log(servicePercentPrice);
 console.log(screens.toLowerCase().split(","));
 
+
+
+
+
 //******************************
-
-
 /*
 console.log(title.toUpperCase());
 console.log(screens.toLowerCase().split(","));
@@ -93,4 +80,13 @@ console.log(screens.length);
 console.log(screens.toLowerCase().split(","));
 console.log(`Стоимость верстки экранов ${screenPrice} рублей ` );
 console.log(`Стоимость разработки сайта ${fullPrice} рублей  `);
-console.log(`Процент отката посреднику за работу` + " " + fullPrice * (rollback / 100)); */
+console.log(`Процент отката посреднику за работу` + " " + fullPrice * (rollback / 100)); 
+
+function getTitle() {
+
+   if (title !== "" && title.charAt(0) !== " ") {
+      return title.charAt(0).toUpperCase() + title.slice(1);
+   }
+}
+
+*/
