@@ -33,7 +33,6 @@ const getAllServicePrices = function () {
    let sum2 = 0;
    let res;
 
-
    for (let i = 0; i < 2; i++) {
       if (i === 0) {
          service1 = prompt("Какой дополнительный тип услуги нужен?");
@@ -52,9 +51,6 @@ const getAllServicePrices = function () {
             sum2= +prompt("Сколько это будет стоить?");
          } while (!isNumber(sum2));
       }
-      /*  do {
-      sum+= +prompt("Сколько это будет стоить?");
-       } while (!isNumber(sum)); */
    }
    res = sum1 + sum2;
    console.log(res);
@@ -105,6 +101,9 @@ console.log(servicePercentPrice);
 console.log(screens.toLowerCase().split(","));
 
 //******************************
+/*  do {
+      sum+= +prompt("Сколько это будет стоить?");
+       } while (!isNumber(sum)); */
 /*
  console.log(title.toUpperCase());
  console.log(screens.toLowerCase().split(","));
