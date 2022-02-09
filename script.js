@@ -9,6 +9,7 @@ let servicePercentPrice;
 let service1;
 let service2;
 
+
 const isNumber = function (num) {
    return !isNaN(parseFloat(num)) && isFinite(num) && num != " ";
 };
@@ -23,27 +24,41 @@ const asking = function () {
    do {
       screenPrice = +prompt("Сколько будет стоить данная работа?");
    } while (!isNumber(screenPrice));
-   do {
-      adaptive = confirm("Нужен ли адаптив на сайте?");
-   } while (!adaptive);
 
+   adaptive = confirm("Нужен ли адаптив на сайте?");
 };
 
 const getAllServicePrices = function () {
-   let sum = 0;
+   let sum1 = 0;
+   let sum2 = 0;
+   let res;
+
 
    for (let i = 0; i < 2; i++) {
       if (i === 0) {
          service1 = prompt("Какой дополнительный тип услуги нужен?");
-      } else if (i === 1) {
+      }
+      if (i === 0) {
+         do {
+            sum1 = +prompt("Сколько это будет стоить?");
+         } while (!isNumber(sum1));
+
+      }
+      if (i === 1) {
          service2 = prompt("Какой дополнительный тип услуги нужен?");
       }
-      do {
-         sum += +prompt("Сколько это будет стоить?");
-      } while (!isNumber(sum));
-
+      if (i === 1) {
+         do {
+            sum2= +prompt("Сколько это будет стоить?");
+         } while (!isNumber(sum2));
+      }
+      /*  do {
+      sum+= +prompt("Сколько это будет стоить?");
+       } while (!isNumber(sum)); */
    }
-   return sum;
+   res = sum1 + sum2;
+   console.log(res);
+   return res;
 };
 
 function getFullPrice() {
