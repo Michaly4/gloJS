@@ -91,6 +91,15 @@ let appDate = {
 };
 appDate.start();
 
+
+
+
+
+
+
+
+
+
 /*
  function showTypeOf() {
    console.log(typeof title, typeof fullPrice, typeof rollback);
