@@ -1,92 +1,93 @@
 let appDate = {
-  title: "",
-  screens: "",
-  screenPrice: 0,
-  adaptive: true,
-  rollback: 10,
-  allServicePrices: 0,
-  fullPrice: 0,
-  servicePercentPrice: 0,
-  service1: "",
-  service2: "",
+   title: "",
+   screens: "",
+   screenPrice: 0,
+   adaptive: true,
+   rollback: 10,
+   allServicePrices: 0,
+   fullPrice: 0,
+   servicePercentPrice: 0,
+   service1: "",
+   service2: "",
 
-  asking: function () {
-    appDate.title = prompt("Как называется ваш проект?");
-    appDate.screens = prompt(
-      "Какие типы экранов нужно разработа?  \n  Простые, Сложные, Интерактивные"
-    );
-    do {
-      appDate.screenPrice = +prompt("Сколько будет стоить данная работа?");
-    } while (!appDate.isNumber(appDate.screenPrice));
+   asking: function () {
+      appDate.title = prompt("Как называется ваш проект?");
+      appDate.screens = prompt(
+         "Какие типы экранов нужно разработа?  \n  Простые, Сложные, Интерактивные"
+      );
+      do {
+         appDate.screenPrice = +prompt("Сколько будет стоить данная работа?");
+      } while (!appDate.isNumber(appDate.screenPrice));
 
-    appDate.adaptive = confirm("Нужен ли адаптив на сайте?");
-  },
-  getAllServicePrices: function () {
-   let sum = 0;
+      appDate.adaptive = confirm("Нужен ли адаптив на сайте?");
+   },
+   getAllServicePrices: function () {
+      let sum = 0;
 
-   for (let i = 0; i < 2; i++) {
-     let price = 0;
+      for (let i = 0; i < 2; i++) {
+         let price = 0;
 
-     if (i === 0) {
-       appDate.service1 = prompt("Какой дополнительный тип услуги нужен?");
-     }
-     if (i === 1) {
-       appDate.service2 = prompt("Какой дополнительный тип услуги нужен?");
-     }
-     do {
-       price = prompt("Сколько это будет стоить?");
-     } while (!appDate.isNumber(price));
-     sum += +price;
-   }
+         if (i === 0) {
+            appDate.service1 = prompt("Какой дополнительный тип услуги нужен?");
+         }
+         if (i === 1) {
+            appDate.service2 = prompt("Какой дополнительный тип услуги нужен?");
+         }
+         do {
+            price = prompt("Сколько это будет стоить?");
+         } while (!appDate.isNumber(price));
+         sum += +price;
+      }
 
-   return sum;
- },
-  start: function () {
-    appDate.asking()
-    appDate.allServicePrices = appDate.getAllServicePrices()
-    appDate.fullPrice = appDate.getFullPrice()
-    appDate.servicePercentPrice = appDate.getServicePercentPrices()
-    appDate.title = appDate.getTitle()
-    appDate.logger()
-  },
+      return sum;
+   },
+   start: function () {
+      appDate.asking();
+      appDate.allServicePrices = appDate.getAllServicePrices();
+      appDate.fullPrice = appDate.getFullPrice();
+      appDate.servicePercentPrice = appDate.getServicePercentPrices();
+      appDate.title = appDate.getTitle();
+      appDate.logger();
+   },
 
-  isNumber: function (num) {
-    return !isNaN(parseFloat(num)) && isFinite(num) && num != " ";
-  },
+   isNumber: function (num) {
+      return !isNaN(parseFloat(num)) && isFinite(num) && num != " ";
+   },
 
-  getFullPrice: function () {
-   return appDate.screenPrice + appDate.allServicePrices;
-},
+   getFullPrice: function () {
+      return appDate.screenPrice + appDate.allServicePrices;
+   },
 
-  getServicePercentPrices: function () {
-    return Math.ceil(
-      appDate.fullPrice - (appDate.fullPrice * appDate.rollback) / 100
-    );
-  },
+   getServicePercentPrices: function () {
+      return Math.ceil(
+         appDate.fullPrice - (appDate.fullPrice * appDate.rollback) / 100
+      );
+   },
 
-  getTitle: function () {
-    return (
-      appDate.title.trim()[0].toUpperCase() + appDate.title.trim().substring(1).toLowerCase()
-    );
-  },
+   getTitle: function () {
+      return (
+         appDate.title.trim()[0].toUpperCase() +
+         appDate.title.trim().substring(1).toLowerCase()
+      );
+   },
 
-  getRollbackMessage: function (price) {
-    if (price > 30000) {
-      return "Даем скидку в 10%";
-    } else if (price > 15000 && price <= 30000) {
-      return "Даем скидку в 5%";
-    } else if (price <= 15000) {
-      return "Скидка не предусмотрена";
-    } else if (price <= 0) {
-      return "Что-то пошло не так,вы в пролёте";
-    }
-  },
+   getRollbackMessage: function (price) {
+      if (price > 30000) {
+         return "Даем скидку в 10%";
+      } else if (price > 15000 && price <= 30000) {
+         return "Даем скидку в 5%";
+      } else if (price <= 15000) {
+         return "Скидка не предусмотрена";
+      } else if (price <= 0) {
+         return "Что-то пошло не так,вы в пролёте";
+      }
+   },
 
-  logger: function () {
-    for (const key in appDate) {
-      console.log(   "Метод"+ " " + key + ": " + appDate[key]);
-    }
-  },
+   logger: function () {
+      for (const key in appDate) {
+         console.log("Метод" + " " + key + ": " + appDate[key]);
+      }
+   },
 };
 appDate.start();
 
