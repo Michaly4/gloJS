@@ -76,7 +76,7 @@ let appDate = {
    },
    isString: function (num) {
       //return num !== " " || num !== "";
-      return !Number.isNaN(Number(num));
+      return !isNaN(Number(num));
    },
 
    getFullPrice: function () {
