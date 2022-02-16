@@ -15,15 +15,13 @@ let appDate = {
       appDate.addPrices();
       appDate.getFullPrice();
       appDate.getServicePercentPrices();
-      //appDate.getTitle();
+      appDate.getTitle();
       appDate.logger();
    },
    asking: function () {
       do {
          title = prompt("Как называется ваш проект?");
       } while (appDate.isString(title));
-      console.log(typeof title);
-      
 
       for (let i = 0; i < 2; i++) {
          let name;
@@ -46,7 +44,7 @@ let appDate = {
          do {
             name = prompt("Какой дополнительный тип услуги нужен?");
          } while (appDate.isString(name));
-         
+
          let price = 0;
 
          do {
@@ -62,15 +60,15 @@ let appDate = {
       // for (const screen of appDate.screens) {
       //    appDate.screenPrice += +screen.price;
       // }
-      appDate.screenPrice = appDate.screens.reduce(function (total,screen) {
-        return total.price + screen.price;
-       });
+      appDate.screenPrice = appDate.screens.reduce(function (total, screen) {
+         return total.price + screen.price;
+      });
 
       for (const key in appDate.services) {
          appDate.allServicePrices += appDate.services[key];
       }
-       
-   
+
+
    },
 
    isNumber: function (num) {
@@ -89,9 +87,9 @@ let appDate = {
       appDate.servicePercentPrice = Math.ceil(appDate.fullPrice - (appDate.fullPrice * appDate.rollback) / 100);
    },
 
-   // getTitle: function () {
-   // appDate.title = appDate.title.trim()[0].toUpperCase() + appDate.title.trim().substring(1).toLowerCase();
-   // },
+   getTitle: function () {
+      appDate.title = title.trim()[0].toUpperCase() + title.trim().substring(1).toLowerCase();
+   },
 
    getRollbackMessage: function (price) {
       if (price > 30000) {
@@ -106,12 +104,12 @@ let appDate = {
    },
 
    logger: function () {
-      /*   for (const key in appDate) {
-           console.log("Метод" + " " + key + ": " + appDate[key]);
-        } */
       console.log(appDate.fullPrice);
       console.log(appDate.servicePercentPrice);
       console.log(appDate.screens);
+      /*   for (const key in appDate) {
+           console.log("Метод" + " " + key + ": " + appDate[key]);
+        } */
    },
 };
 appDate.start();
