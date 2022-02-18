@@ -1,5 +1,7 @@
 const title = document.getElementsByTagName("h1")[0];
 const handler_btn = document.getElementsByClassName("handler_btn");
+const btn_start = handler_btn[0];
+const btn_reset = handler_btn[1];
 const screenBtn = document.querySelector(".screen-btn");
 const percent = document.querySelectorAll(".other-items.percent");
 const number = document.querySelectorAll(".other-items.number");
@@ -14,6 +16,10 @@ const totalInputThree = totalInput[2];
 const totalInputFour = totalInput[3];
 const totalInputFunf = totalInput[4];
 let screen = document.querySelectorAll(".screen ");
+console.log(title,btn_start,btn_reset,screenBtn,percent,number,typeRange,rangeValue,totalInputOne,totalInputTwo,totalInputThree,totalInputFour,totalInputFunf);
+
+
+
 /*
 let appDate = {
    title: "",
